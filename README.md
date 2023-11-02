@@ -1,6 +1,6 @@
 # MovieLister
-
-A basic template movie lister app created with React
+<img src="./movielister.png" width="100%" />
+A basic template movie lister app created with React using omdbapi to serve live up-to-date shows!
 
 # Development Setup
 
