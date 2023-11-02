@@ -20,32 +20,54 @@ const App = () => {
 	const [movies, setMovies] = useState([])
 	const [searchTerm, setSearchTerm] = useState('')
 	
-	const seachMovie = async (title) => {
+	const searchMovie = async (title) => {
+		console.log("SENDING REQUEST!")
 		const response = await fetch(`${API_URL}&s=${title}`)
 		const data = await response.json()
 
 		console.log(data)
 		setMovies(data.Search)
 	}
+
+	const toggleBurgerMenu = () => {
+		console.log("clicked!")
+		document.querySelector(".navbar").classList.toggle("burgermenuactive")
+	}
+	(function(){
+		window.addEventListener("scroll",e=>{document.querySelector(".navbar").classList.remove("burgermenuactive")})
+	})()
+
+	const handleKeyDown = (event) =>{
+		if (event.key === "Enter"){
+			searchMovie(searchTerm)
+		}
+	}
+
 	useEffect(()=>{
-		seachMovie("spiderman")
+		searchMovie("batman")
 	},[])
 
 	return (
 		<div className="app">
 			<header>
-				<h3>Movie Lister</h3>
+				<h3><a href="#">Movie Lister</a></h3>
 				<div className="navbar">
-					<div className="navbar-items">Contact Us</div>
-					<div className="navbar-items">Login</div>
+					<div className="navbar-items"><a className="nav-link" href="#">Contact Us</a></div>
+					<div className="navbar-items"><a className="nav-link" href="#">Login</a></div>
+				</div>
+				<div className="burger-menu" onClick={()=>{toggleBurgerMenu()}}>
+					<div className="bar"></div>
+					<div className="bar"></div>
+					<div className="bar"></div>
 				</div>
 			</header>
 			<div className="search">
-				<input placeholder="Search for movies" value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}}/>
+				<input placeholder="Search for movies" value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}} onKeyDown={handleKeyDown}/>
 				<img
+					className="clickable"
 					src={Icon}
 					alt="search"
-					onClick={()=>{seachMovie(searchTerm)}}
+					onClick={()=>{searchMovie(searchTerm)}}
 				/>
 			</div>
 			<div className="container">
@@ -54,7 +76,7 @@ const App = () => {
 						// {movies}
 						// <MovieCard movie={movie1}/>
 						<>
-							{movies.map(movie=><MovieCard movie={movie}/>)}
+							{movies.map(movie=><MovieCard movie={movie} key={movie.Title+movie.Type+movie.Year}/>)}
 						</>
 					):(
 						<h3>No movies found</h3>

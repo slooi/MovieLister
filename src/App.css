@@ -2,13 +2,19 @@
 *{
 	margin:0;
 	padding:0;
+	box-sizing: border-box;
+
+	list-style: none;
+	text-decoration: none;
+
+}
+*{
 	color:black;
+	font-family: 'Open Sans', sans-serif;;
+	
 	--background-color-dark: #202020;
 	--background-color-light: #eeeeee;
 	--card-color-light:#f4f4f4;
-
-	font-family: 'Open Sans', sans-serif;;
-	box-sizing: border-box;
 }
 
 html, body, #root, .app{
@@ -79,9 +85,6 @@ h1{
 	font-size: 3rem;
 }
 
-.navbar{
-	display:flex;
-}
 .navbar-items{
 	margin-left:1rem;
 }
@@ -95,7 +98,87 @@ header{
 	justify-content: space-between;
 }
 
+.clickable{
+	margin-left: 0.4rem;
+	cursor: pointer;
+}
+
 
 .header{
 	/* background-image: url(../public/background.jpg); */
+}
+a{
+	cursor: pointer;
+}
+
+.navbar{
+	display:flex;
+}
+.burger-menu{
+	display:none;
+
+	cursor:pointer
+}
+.bar{
+	background-color: black;
+	
+	width:2rem;
+	height:0.2rem;
+	margin:0.3rem 0;
+}
+
+@media (max-width:750px){
+	.burger-menu{
+		display:block;
+	}
+
+	.navbar{
+		display:none;
+	}
+	
+	.navbar.burgermenuactive{
+		padding:1rem;
+		background-color: rgb(243, 243, 243);
+		position: fixed;
+		top:3.9rem;
+		left:0;
+
+		display:flex;
+		flex-direction: column;
+
+		width:100%;
+		gap:0.25rem;
+	}
+	
+}
+
+.nav-link:hover{
+	color:rgb(116, 116, 116)
+}
+.nav-link{
+	transition: 0.3s ease-out;
+}
+input{
+	
+    padding-left: 1rem;
+    /* outline: none; */
+	font-size: 1.25rem;
+}
+header{
+	
+}
+.tag-field{
+	margin:0.5rem 0;
+	display: flex;
+	gap:0.5rem;
+	justify-content: center;
+}
+.tag{
+	/* background-color: rgb(224, 224, 224); */
+	color: 1px solid rgb(255, 0, 0);
+	margin: 0 0.25rem;
+	color:rgb(61, 61, 61);
+	/* border-bottom: 1px solid rgb(218, 218, 218); */
+	/* padding:0.3rem 0.6rem; */
+	/* border-radius: 3px; */
 }
