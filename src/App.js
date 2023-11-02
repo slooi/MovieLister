@@ -11,7 +11,7 @@ const movie1 = {
 	"Title": "Italian Spiderman",
 	"Year": "2007",
 	"imdbID": "tt2705436",
-	"Type": "movie",
+	"Type": "movie  asd asd asd asd as askd ahsdkj sadkjasd kahsd kjahdlkotiuyef ehlfiusy fiuoehfi dasssssssssssssssssssssssssssssssssssssssssssssssssssssss",
 	"Poster": "https://m.media-amazon.com/images/M/MV5BZWQxMjcwNjItZjI0ZC00ZTc4LWIwMzItM2Q0YTZhNzI3NzdlXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_SX300.jpg"
 }
 
@@ -33,7 +33,13 @@ const App = () => {
 
 	return (
 		<div className="app">
-			<h1>movieland</h1>
+			<header>
+				<h3>Movie Lister</h3>
+				<div className="navbar">
+					<div className="navbar-items">Contact Us</div>
+					<div className="navbar-items">Login</div>
+				</div>
+			</header>
 			<div className="search">
 				<input placeholder="Search for movies" value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}}/>
 				<img
